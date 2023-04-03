@@ -22,7 +22,7 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' =>'required|exists:categories,id',
             'image' => 'required|image|mimes:jpg,png,jpeg,gif|max:20000'
-        ]);
+        ]); 
         $product = new product();
         $product->title = $request->title;
         $product->description = $request->description;
