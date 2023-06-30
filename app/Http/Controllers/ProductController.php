@@ -22,15 +22,18 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' =>'required|exists:categories,id',
             'image' => 'required|image|mimes:jpg,png,jpeg,gif|max:20000'
-        ]); 
+        ]);
         $product = new product();
         $product->title = $request->title;
         $product->description = $request->description;
         $product->category_id = $request->category_id;
+
         $extension = $request->file('image')->extension();
         $fileName = date('ymdHis') . '.' . $extension;
         $request->file('image')->move(public_path('uploads/'), $fileName);
         $product->image = $fileName;
+
+
         $product->save();
         return redirect()->route('Admin.index');
 

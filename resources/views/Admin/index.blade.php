@@ -3,6 +3,8 @@
 use App\Models\Category;
 
 $category = Category::all(); ?>
+
+
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +34,7 @@ $category = Category::all(); ?>
     <tbody>
     @foreach($products as $product)
         <tr>
-            <td>{{$product->id}}</td>
+            <td>{{$product->id}}$</td>
             <td>{{$product->title}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->category->name?? 'None'}}</td>
